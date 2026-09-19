@@ -1,0 +1,527 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://carra.ai/schemas/service-record-output.schema.json",
+  "title": "Carra Service Record Understanding Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "parse_metadata",
+    "document",
+    "shop",
+    "vehicle",
+    "customer_concern",
+    "technician_findings",
+    "work_performed",
+    "totals",
+    "recommendations",
+    "warranty",
+    "driver_view",
+    "guardrails"
+  ],
+  "properties": {
+    "parse_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document_type",
+        "language",
+        "currency",
+        "overall_confidence",
+        "needs_review",
+        "review_reasons"
+      ],
+      "properties": {
+        "document_type": {
+          "type": "string",
+          "enum": [
+            "service_record",
+            "diagnostic_report",
+            "inspection_report",
+            "warranty_repair_record",
+            "invoice",
+            "unknown"
+          ]
+        },
+        "language": {
+          "type": "string"
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "page_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "overall_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "needs_review": {
+          "type": "boolean"
+        },
+        "review_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "number",
+        "date"
+      ],
+      "properties": {
+        "number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "shop": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "address",
+        "phone"
+      ],
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "address": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "vehicle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "year",
+        "make",
+        "model",
+        "mileage",
+        "vin",
+        "license_plate"
+      ],
+      "properties": {
+        "year": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "make": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mileage": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "vin": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "license_plate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "customer_concern": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "technician_findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_text",
+          "plain_language",
+          "confidence"
+        ],
+        "properties": {
+          "source_text": {
+            "type": "string"
+          },
+          "plain_language": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "work_performed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_text",
+          "normalized_title",
+          "category",
+          "status",
+          "parts_amount",
+          "labor_hours",
+          "labor_rate",
+          "labor_amount",
+          "other_amount",
+          "line_total",
+          "confidence"
+        ],
+        "properties": {
+          "source_text": {
+            "type": "string"
+          },
+          "normalized_title": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "diagnostic",
+              "brakes",
+              "tires",
+              "alignment",
+              "maintenance",
+              "battery",
+              "electrical",
+              "engine",
+              "ignition",
+              "cooling",
+              "hvac",
+              "suspension",
+              "transmission",
+              "emissions",
+              "body",
+              "service_fee",
+              "verification",
+              "other",
+              "high_voltage_battery",
+              "charging_system",
+              "thermal_management",
+              "drive_unit",
+              "low_voltage_electrical",
+              "regenerative_braking"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "completed",
+              "warranty_completed",
+              "courtesy_check",
+              "declined",
+              "completed_after_additional_authorization",
+              "unknown"
+            ]
+          },
+          "parts_amount": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "labor_hours": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "labor_rate": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "labor_amount": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "other_amount": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "line_total": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "totals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parts_subtotal",
+        "labor_subtotal",
+        "fees",
+        "subtotal",
+        "tax",
+        "total"
+      ],
+      "properties": {
+        "parts_subtotal": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "labor_subtotal": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "fees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "amount"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          }
+        },
+        "subtotal": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "tax": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "total": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "warranty": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "driver_view": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "headline",
+        "summary",
+        "what_was_found",
+        "what_was_done",
+        "what_to_watch_next",
+        "questions_to_ask",
+        "uncertainties"
+      ],
+      "properties": {
+        "headline": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "what_was_found": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "what_was_done": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "what_to_watch_next": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "questions_to_ask": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 5,
+          "items": {
+            "type": "string"
+          }
+        },
+        "uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "guardrails": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "new_diagnosis_made",
+        "mechanic_overruled",
+        "price_fairness_judgment_made",
+        "disclaimer"
+      ],
+      "properties": {
+        "new_diagnosis_made": {
+          "type": "boolean",
+          "const": false
+        },
+        "mechanic_overruled": {
+          "type": "boolean",
+          "const": false
+        },
+        "price_fairness_judgment_made": {
+          "type": "boolean",
+          "const": false
+        },
+        "disclaimer": {
+          "type": "string"
+        }
+      }
+    },
+    "ev_context": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "powertrain_type": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "bev",
+            "phev",
+            "hybrid",
+            "ice",
+            "unknown",
+            null
+          ]
+        },
+        "high_voltage_system_involved": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "charging_system_involved": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "ev_safety_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

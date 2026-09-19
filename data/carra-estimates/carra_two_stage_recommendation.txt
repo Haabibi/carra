@@ -1,0 +1,22 @@
+RECOMMENDED PRODUCTION FLOW
+
+STAGE A - DOCUMENT PARSER
+Goal: document facts only.
+Input: estimate/invoice/repair-order image or PDF.
+Output: all fields except driver_view, plus confidence and source_text.
+Temperature: low (0-0.2).
+
+STAGE B - DRIVER EXPLAINER
+Goal: transform verified Stage A facts into plain-language explanation and questions.
+Input: Stage A JSON only (not raw OCR unless needed for evidence).
+Output: driver_view + guardrails.
+Temperature: low-medium (0.2-0.4).
+
+Why two stages:
+- Easier debugging.
+- Lower hallucination risk.
+- Lets Carra show which statements came from the shop document.
+- Allows OCR/extraction model and explanation model to be evaluated separately.
+
+FAIL-SAFE
+If overall_confidence < 0.70, or total/line-item arithmetic does not reconcile, set needs_review=true and avoid strong explanatory claims about the uncertain fields.

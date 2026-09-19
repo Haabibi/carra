@@ -1,0 +1,22 @@
+{
+  "name": "carra",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run build && node --check app.js && node --check workflow.js && node --check my-page.js && node --check documents-ui.js && node --check coverage-ui.js && node --check item-insights-ui.js && node --check scripts/serve.mjs && node --check landing.js && node --check landing-motion.js && npm test && node scripts/lint-copy.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "pdfjs-dist": "^6.3.289",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "esbuild": "^0.25.0"
+  }
+}

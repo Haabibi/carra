@@ -1,0 +1,85 @@
+Carra Reference Source Manifest
+Prepared for Dream AI Hackathon 2026
+Accessed: 2026-09-19
+
+IMPORTANT
+The 24 PDFs in this package are ORIGINAL SYNTHETIC TEST DOCUMENTS generated for Carra.
+They do not reproduce a third-party template and contain no real customer data.
+The public sources below were used to understand common field structures, terminology, authorization patterns, and document variety.
+
+1. California Bureau of Automotive Repair - Write It Right
+   https://www.bar.ca.gov/wir
+   Use: official California reference for estimates, invoices, authorization, parts/labor documentation, third-party estimates, transmission estimates.
+
+2. California BAR - Write It Right PDF
+   https://www.bar.ca.gov/pdf/WriteItRight.pdf
+   Use: official sample-document and compliance reference.
+
+3. AutoLeap - Auto Repair Invoice Templates
+   https://autoleap.com/tools/invoice-generator/
+   Use: variation patterns including standard repair, parts/labor split, estimate-to-invoice, mechanic, tire, mobile mechanic and quick-lube invoices.
+
+4. InvoSmith - Auto Repair Estimate Template
+   https://invosmith.com/templates/auto-repair-estimate
+   Use: standard estimate, diagnostic + recommended work, parts/labor split patterns.
+
+5. EstimateWiz - Auto Repair Invoice
+   https://estimatewiz.com/invoice-template/auto-repair
+   Use: completed example with brake parts/labor, oil service, shop supplies and vehicle/mileage context.
+
+6. FreeInvoicePDF - Auto Mechanic Invoice Example
+   https://freeinvoicepdf.org/invoice-examples/mechanic/
+   Use: completed invoice pattern with diagnostic, labor, brakes, fluids, supplies and tax.
+
+7. StiffProof - Auto Repair Invoice Template
+   https://stiffproof.com/invoice-template/auto-repair
+   Use: diagnostic/parts/labor/shop-supplies invoice structure.
+
+8. BayDocket - Auto Repair Estimate Template
+   https://baydocket.com/tools/estimate-template
+   Use: description, parts, labor hours, rate, amount, authorization.
+
+9. MekaDesk - Auto Repair Order Template
+   https://mekadesk.com/en/tools/auto-repair-order-template/
+   Use: repair-order structure, vehicle condition, estimate, authorization limit.
+
+10. Garage360 - Auto Repair Estimate Template
+    https://garage360.io/templates/repair-estimate-template
+    Use: recommended repairs, labor hours, parts costs, projected totals and authorization.
+
+11. Smartsheet - Auto Repair Estimate Template
+    https://www.smartsheet.com/sites/default/files/2025-09/IC-Auto-Repair-Estimate-Template_PDF.pdf
+    Use: broad vehicle/service checklist and estimate layout.
+
+12. InvoiceGenerator - Auto Repair Work Order Template
+    https://invoicegenerator.com/templates/work-order/repair/auto
+    Use: work-order / internal repair-order field structure.
+
+DATASET DESIGN PRINCIPLE
+The synthetic set intentionally mixes:
+- estimates, invoices and repair orders
+- parts/labor split vs compact layouts
+- diagnostic-only vs repair recommendations
+- approved / declined / pending / performed status
+- additional authorization
+- deposits and balances
+- mobile mechanic fees
+- tire, brake, HVAC, cooling, electrical, transmission and maintenance examples
+- one two-page document
+- one degraded simulated phone-photo scan
+- one compact abbreviation-heavy receipt
+
+Recommended MVP evaluation:
+Document -> Structured JSON -> Plain-language explanation -> Questions to Ask
+
+
+EV ADD-ON
+Samples 25-30 are original synthetic BEV documents designed to exercise:
+- high-voltage battery diagnostics
+- AC charging inlet/system
+- battery thermal management
+- electric drive unit
+- 12V/DC-DC low-voltage system
+- regenerative + friction braking
+
+No sample is intended as OEM repair guidance.

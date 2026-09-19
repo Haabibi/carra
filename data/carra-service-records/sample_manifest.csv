@@ -1,0 +1,31 @@
+﻿sample_id,file,document_type,layout,vehicle,mileage,total,difficulty,primary_test
+01,01_brake_repair_service_record.pdf,service_record,standard,2019 Honda CR-V,84210,890.19,basic,findings vs work performed / service-history extraction
+02,02_oil_maintenance_service_record.pdf,service_record,clean,2021 Toyota Camry,51220,235.52,basic,findings vs work performed / service-history extraction
+03,03_battery_replacement_service_record.pdf,service_record,split,2018 Ford Escape,76980,392.66,medium,findings vs work performed / service-history extraction
+04,04_tires_alignment_service_record.pdf,service_record,compact,2020 Subaru Outback,63410,1143.5,basic,findings vs work performed / service-history extraction
+05,05_suspension_service_record.pdf,service_record,standard,2017 BMW 330i,88200,1408.35,basic,findings vs work performed / service-history extraction
+06,06_ac_service_record.pdf,service_record,diagnostic,2022 Hyundai Tucson,39120,525.59,medium,findings vs work performed / service-history extraction
+07,07_cooling_system_service_record.pdf,service_record,clean,2016 Nissan Altima,103440,468.81,basic,findings vs work performed / service-history extraction
+08,08_check_engine_diagnostic_record.pdf,diagnostic_report,diagnostic,2015 Mazda CX-5,112330,368.84,medium,findings vs work performed / service-history extraction
+09,09_alternator_service_record.pdf,service_record,split,2014 Honda Accord,124850,958.07,medium,findings vs work performed / service-history extraction
+10,10_multi_service_record.pdf,service_record,multi,2019 Mercedes-Benz GLC300,71480,1216.09,basic,findings vs work performed / service-history extraction
+11,11_transmission_diagnostic_record.pdf,diagnostic_report,authorization,2013 Chevrolet Malibu,132600,395.0,medium,findings vs work performed / service-history extraction
+12,12_mobile_mechanic_service_record.pdf,service_record,mobile,2018 Jeep Grand Cherokee,92110,830.89,medium,findings vs work performed / service-history extraction
+13,13_quick_lube_service_record.pdf,service_record,receipt,2023 Kia Sportage,22840,109.57,hard,findings vs work performed / service-history extraction
+14,14_tire_service_record.pdf,service_record,tire,2020 Tesla Model 3,48600,901.08,basic,findings vs work performed / service-history extraction
+15,15_warranty_repair_record.pdf,warranty_repair_record,warranty,2019 Volkswagen Tiguan,68100,0.0,basic,findings vs work performed / service-history extraction
+16,16_brake_followup_record.pdf,service_record,followup,2016 Lexus RX350,99850,0.0,basic,findings vs work performed / service-history extraction
+17,17_inspection_repair_record.pdf,inspection_report,inspection,2018 Toyota RAV4,80990,156.52,medium,findings vs work performed / service-history extraction
+18,18_ignition_repair_record.pdf,service_record,diagnostic,2017 Audi A4,90540,717.52,medium,findings vs work performed / service-history extraction
+19,19_rear_brake_service_record.pdf,service_record,split,2020 Volvo XC60,59220,1004.38,medium,findings vs work performed / service-history extraction
+20,20_partial_service_record.pdf,service_record,status,2015 Toyota Prius,138400,178.28,medium,findings vs work performed / service-history extraction
+21,21_additional_repair_completed_record.pdf,service_record,revision,2016 Acura TLX,105700,811.4,hard,findings vs work performed / service-history extraction
+22,22_two_page_service_history.pdf,service_record,two_page,2018 BMW X3,96450,2457.08,hard,findings vs work performed / service-history extraction
+23,23_phone_photo_service_record.pdf,service_record,scan,2012 Honda Civic,147220,592.26,hard,findings vs work performed / service-history extraction
+24,24_abbreviated_service_receipt.pdf,service_record,receipt,2017 Honda Fit,118320,429.37,hard,findings vs work performed / service-history extraction
+25,25_ev_high_voltage_battery_diagnostic_record.pdf,diagnostic_report,ev,2021 Ford Mustang Mach-E,57240,546.0,medium,EV findings vs completed work / service-history extraction
+26,26_ev_charge_port_service_record.pdf,service_record,ev,2022 Hyundai IONIQ 5,43880,802.58,medium,EV findings vs completed work / service-history extraction
+27,27_ev_battery_cooling_service_record.pdf,service_record,ev,2020 Chevrolet Bolt EV,68420,653.67,medium,EV findings vs completed work / service-history extraction
+28,28_ev_drive_unit_service_record.pdf,diagnostic_report,ev,2020 Nissan LEAF,73110,720.56,medium,EV findings vs completed work / service-history extraction
+29,29_ev_12v_dc_dc_service_record.pdf,service_record,ev,2022 Kia EV6,36120,600.36,medium,EV findings vs completed work / service-history extraction
+30,30_ev_regen_brake_diagnostic_record.pdf,inspection_report,ev,2021 Volkswagen ID.4,49760,342.0,medium,EV findings vs completed work / service-history extraction

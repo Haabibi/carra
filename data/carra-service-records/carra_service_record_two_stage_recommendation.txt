@@ -1,0 +1,31 @@
+RECOMMENDED FLOW
+
+STAGE A - SERVICE RECORD PARSER
+Input: maintenance record / invoice / diagnostic report / repair record.
+Output: document facts only:
+- vehicle
+- mileage
+- customer concern
+- technician findings
+- work performed
+- status
+- parts/labor/totals
+- recommendations
+- warranty
+
+STAGE B - VEHICLE HISTORY EXPLAINER
+Input: verified Stage A JSON.
+Output:
+- short driver-friendly service summary
+- what was found
+- what was done
+- what to watch next
+- useful follow-up questions
+
+CRITICAL DISTINCTION
+Finding != Work performed.
+Recommendation != Work performed.
+Declined item != Work performed.
+
+FAIL-SAFE
+If extraction confidence < 0.70, show a review flag and avoid creating a definitive vehicle-history statement from the uncertain field.

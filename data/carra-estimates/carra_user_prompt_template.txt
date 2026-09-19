@@ -1,0 +1,19 @@
+Analyze the attached automotive repair document for Carra.
+
+Return JSON that matches carra_estimate_output.schema.json.
+
+Focus on TWO user outcomes:
+1) Understand My Estimate: extract and explain what the shop document says in plain language.
+2) Questions to Ask: generate practical, non-accusatory questions the driver can ask the mechanic/service advisor.
+
+Document context (optional):
+- User-reported concern: {{USER_CONCERN_OR_NULL}}
+- Known vehicle: {{KNOWN_YEAR_MAKE_MODEL_OR_NULL}}
+- Known mileage: {{KNOWN_MILEAGE_OR_NULL}}
+
+Important:
+- Use the document as the primary evidence.
+- Do not diagnose the vehicle.
+- Do not judge whether the price is fair or whether the repair is necessary.
+- Do not overrule the mechanic.
+- If text is unreadable or ambiguous, return null for the affected field and describe the uncertainty.

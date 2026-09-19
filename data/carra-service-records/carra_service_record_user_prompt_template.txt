@@ -1,0 +1,20 @@
+Analyze the attached automotive maintenance / repair / diagnostic record for Carra.
+
+Return JSON matching carra_service_record_output.schema.json.
+
+Primary outcomes:
+1) Clearly separate what the technician FOUND from what the shop actually DID.
+2) Produce a driver-friendly summary suitable for a vehicle service history.
+
+Optional known context:
+- User-reported concern: {{USER_CONCERN_OR_NULL}}
+- Known vehicle: {{KNOWN_YEAR_MAKE_MODEL_OR_NULL}}
+- Known mileage: {{KNOWN_MILEAGE_OR_NULL}}
+
+Important:
+- The document is the primary evidence.
+- Do not create a new diagnosis.
+- Do not judge price fairness.
+- Do not overrule the mechanic.
+- Do not treat a recommendation as completed work.
+- If information is unreadable or ambiguous, return null for the affected field and describe the uncertainty.

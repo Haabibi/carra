@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0d1319" />
+    <title>Carra | Your everyday car companion</title>
+    <meta name="description" content="Meet Carra, your everyday car companion. Make sense of repair estimates and explore a simpler way to navigate life with your car." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="workflow.css" />
+    <link rel="stylesheet" href="landing.css" />
+    <link rel="stylesheet" href="documents.css" />
+    <link rel="stylesheet" href="coverage.css" />
+    <link rel="stylesheet" href="item-insights.css" />
+    <link rel="stylesheet" href="my-page.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#report">Skip to report</a>
+
+    <header class="topbar">
+      <a class="brand" href="#/" aria-label="Carra home"><span class="brand-mark" aria-hidden="true">C</span>carra</a>
+      <nav class="top-nav" aria-label="Main navigation"><a class="topbar-link" href="#/">Home</a><a class="topbar-link" href="#/analyze/new">New estimate</a><a class="topbar-link" href="#/my">My page</a></nav>
+    </header>
+
+    <div class="mode-banner" id="mode-banner">Local preview · Public records and AI parsing are not connected.</div>
+    <main id="workflow" class="workflow" tabindex="-1"></main>
+    <div class="layout" id="report-layout" hidden>
+      <!-- Estimate viewer: left column on desktop, moved into a sheet on mobile -->
+      <aside class="evidence" aria-label="Your estimate">
+        <div class="viewer" id="viewer">
+          <div class="viewer-head">
+            <h2>Your estimate</h2>
+            <div class="viewer-controls">
+              <button type="button" class="icon-button" data-zoom="-1" aria-label="Zoom out">&minus;</button>
+              <span id="zoom-label" aria-live="polite">100%</span>
+              <button type="button" class="icon-button" data-zoom="1" aria-label="Zoom in">+</button>
+            </div>
+          </div>
+          <div class="viewer-frame" id="viewer-frame">
+            <div class="paper-wrap" id="paper-wrap">
+              <div class="margin-strip" id="margin-strip" aria-label="Findings on estimate lines"></div>
+              <div class="paper" id="paper"></div>
+            </div>
+          </div>
+          <p class="viewer-hint">Select a line to see what it means. Marked lines have findings.</p>
+        </div>
+      </aside>
+
+      <main class="report" id="report" tabindex="-1">
+        <header class="report-header">
+          <div>
+            <h1 id="vehicle-name"></h1>
+            <p class="report-meta" id="report-meta"></p>
+          </div>
+          <button type="button" class="btn btn-secondary" data-copy-questions>Copy questions</button>
+        </header>
+
+        <!-- Layer 1 -->
+        <section class="section glance" id="glance" aria-labelledby="glance-title">
+          <div class="carra-read-head">
+            <div class="carra-read-avatar" aria-hidden="true">
+              <img src="design/carra-character/carra-agent.png" alt="" onerror="this.hidden = true; this.nextElementSibling.hidden = false" />
+              <span hidden>C</span><i hidden></i>
+            </div>
+            <div><p class="eyebrow">Carra's read</p><h2 id="glance-title">The short version</h2></div>
+          </div>
+          <p class="headline" id="glance-headline"></p><span class="provenance">From your estimate</span>
+          <div class="read-summary">
+            <div class="read-summary-block"><span class="read-label">Estimate asks for</span><p id="estimate-request"></p></div>
+            <div class="read-summary-block next-step"><span class="read-label">Ask the shop</span><p id="simple-next-step"></p></div>
+          </div>
+          <div class="read-total"><span id="total-line"></span><span class="provenance">From your estimate</span></div>
+          <h2 class="subhead" id="before-title">What this means</h2>
+          <ul class="key-points" id="key-points" aria-labelledby="before-title"></ul>
+          <div class="glance-actions">
+            <a class="btn btn-primary" href="#/my">My protection</a>
+            <button type="button" class="btn btn-quiet mobile-only" data-open-estimate>See your estimate</button>
+          </div>
+        </section>
+
+        <!-- Layer 2 -->
+        <section class="section" id="items" aria-labelledby="items-title">
+          <div class="section-head">
+            <div><h2 id="items-title">What's on this estimate</h2><p class="section-sub item-help">Select an item to see what the part does and why it is listed.</p></div>
+            <span class="section-note" id="items-note"></span>
+          </div>
+          <div class="item-list" id="item-list"></div>
+          <div class="fee-list" id="fee-list"></div>
+        </section>
+
+        <section class="section" id="questions" aria-labelledby="questions-title">
+          <div class="section-head">
+            <h2 id="questions-title" tabindex="-1">Questions to ask before you approve</h2>
+          </div>
+          <p class="section-sub">Check off each one as you ask it.</p>
+          <ul class="question-list" id="question-list"></ul>
+          <div class="question-actions">
+            <button type="button" class="btn btn-secondary" data-copy-questions>Copy questions</button>
+            <button type="button" class="link-button" id="toggle-questions" aria-expanded="false"></button>
+          </div>
+        </section>
+
+        <section class="section" id="ask" aria-labelledby="ask-title">
+          <div class="section-head">
+            <h2 id="ask-title">Ask about this report</h2>
+          </div>
+          <p class="section-sub">Ask about the estimate, its items, or the records shown here.</p>
+          <div class="chat-panel">
+            <div class="carra-intro">
+              <div class="carra-avatar" aria-hidden="true">
+                <video autoplay loop muted playsinline preload="metadata" poster="design/carra-character/carra-agent.png">
+                  <source src="design/carra-character/thinking_suggesting.mp4" type="video/mp4" />
+                </video>
+                <img src="design/carra-character/carra-agent.png" alt="" />
+              </div>
+              <div><strong>Carra</strong><p>I'll help you read this report.</p></div>
+            </div>
+            <div class="thread" id="thread" aria-live="polite"></div>
+            <div class="suggestions" id="suggestions" aria-label="Suggested questions"></div>
+            <form class="ask-form" id="ask-form">
+              <label class="visually-hidden" for="ask-input">Your question</label>
+              <textarea id="ask-input" rows="2" maxlength="500" placeholder="Ask a question about this estimate"></textarea>
+              <div class="ask-form-foot">
+                <span class="char-count" id="char-count">0 / 500</span>
+                <button type="submit" class="btn btn-primary">Ask</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="section" id="checked" aria-labelledby="checked-title">
+          <button type="button" class="disclosure" id="checked-toggle" aria-expanded="false" aria-controls="checked-body">
+            <span class="disclosure-title" id="checked-title">How we checked</span>
+            <span class="disclosure-summary" id="checked-summary"></span>
+            <svg class="chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+          <div class="checked-body" id="checked-body" hidden></div>
+        </section>
+
+        <p class="disclaimer">Carra explains your estimate and shows what public records say. It doesn't diagnose your car or judge whether a repair or price is right. Your mechanic can inspect the car. Recall coverage depends on your vehicle's VIN.</p>
+      </main>
+    </div>
+
+    <!-- Mobile sheets -->
+    <dialog class="sheet" id="item-sheet" aria-labelledby="sheet-title">
+      <div class="sheet-grip" aria-hidden="true"></div>
+      <div class="sheet-body" id="item-sheet-body"></div>
+    </dialog>
+    <dialog class="sheet" id="estimate-sheet" aria-label="Your estimate">
+      <div class="sheet-grip" aria-hidden="true"></div>
+      <div class="sheet-bar"><button type="button" class="btn btn-quiet" data-close-sheet>Close</button></div>
+      <div class="sheet-body" id="estimate-sheet-body"></div>
+    </dialog>
+
+    <a class="ask-bar" id="ask-bar" href="#ask" hidden>Ask about this report</a>
+    <div class="term-pop" id="term-pop" role="tooltip" hidden></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="core.bundle.js"></script>
+    <script src="my-page.js"></script>
+    <script src="coverage-ui.js"></script>
+    <script src="item-insights-ui.js"></script>
+    <script src="part-photos.js"></script>
+    <script src="app.js"></script>
+    <script src="landing.js"></script>
+    <script src="landing-motion.js"></script>
+    <script src="documents-ui.js"></script>
+    <script src="workflow.js"></script>
+  </body>
+</html>

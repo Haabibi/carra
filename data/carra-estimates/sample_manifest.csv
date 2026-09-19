@@ -1,0 +1,31 @@
+﻿sample_id,file,document_type,layout,primary_category,vehicle,total,difficulty,purpose
+01,01_brake_standard_estimate.pdf,estimate,standard,brakes,2019 Honda CR-V,846.69,basic,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+02,02_oil_maintenance_invoice.pdf,invoice,clean,maintenance,2021 Toyota Camry,235.52,basic,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+03,03_battery_charging_estimate.pdf,estimate,split,battery/electrical,2018 Ford Escape,437.66,medium,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+04,04_tires_alignment_estimate.pdf,estimate,compact,alignment/tires,2020 Subaru Outback,1143.5,basic,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+05,05_suspension_estimate.pdf,estimate,standard,alignment/suspension,2017 BMW 330i,1408.35,basic,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+06,06_ac_diagnostic_estimate.pdf,estimate,diagnostic,hvac,2022 Hyundai Tucson,496.96,medium,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+07,07_cooling_system_estimate.pdf,estimate,clean,cooling,2016 Nissan Altima,468.81,basic,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+08,08_check_engine_diagnostic_estimate.pdf,estimate,diagnostic,diagnostic/emissions,2015 Mazda CX-5,322.54,medium,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+09,09_alternator_electrical_estimate.pdf,estimate,split,electrical/engine,2014 Honda Accord,958.07,medium,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+10,10_multi_service_estimate.pdf,estimate,multi,brakes/maintenance,2019 Mercedes-Benz GLC300,1216.09,basic,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+11,11_transmission_diagnostic_estimate.pdf,estimate,authorization,transmission,2013 Chevrolet Malibu,395.0,medium,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+12,12_mobile_mechanic_estimate.pdf,estimate,mobile,diagnostic/electrical/service_fee,2018 Jeep Grand Cherokee,830.89,medium,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+13,13_quick_lube_invoice.pdf,invoice,receipt,maintenance,2023 Kia Sportage,109.57,hard,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+14,14_tire_service_invoice.pdf,invoice,tire,alignment/tires,2020 Tesla Model 3,901.08,basic,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+15,15_warranty_notes_invoice.pdf,invoice,warranty,cooling,2019 Volkswagen Tiguan,948.74,basic,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+16,16_estimate_to_invoice_deposit.pdf,invoice,deposit,brakes,2016 Lexus RX350,969.16,basic,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+17,17_repair_order_authorization_limit.pdf,repair_order,authorization,diagnostic,2018 Toyota RAV4,150.0,medium,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+18,18_diagnostic_recommended_work.pdf,estimate,diagnostic,diagnostic/ignition,2017 Audi A4,717.52,medium,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+19,19_parts_labor_split_estimate.pdf,estimate,split,brakes,2020 Volvo XC60,1004.38,medium,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+20,20_approved_declined_items.pdf,estimate,status,maintenance,2015 Toyota Prius,387.91,medium,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+21,21_additional_work_authorization.pdf,estimate,revision,brakes,2016 Acura TLX,811.4,hard,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+22,22_two_page_complex_estimate.pdf,estimate,two_page,brakes/cooling/diagnostic/maintenance,2018 BMW X3,2457.08,hard,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+23,23_phone_photo_simulated_scan.pdf,estimate,scan,brakes,2012 Honda Civic,592.26,hard,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+24,24_abbreviated_compact_receipt.pdf,invoice,receipt,battery/electrical/maintenance,2017 Honda Fit,429.37,hard,"Evaluate extraction, plain-language explanation, and Questions to Ask"
+25,25_ev_high_voltage_battery_diagnostic_estimate.pdf,estimate,ev,high_voltage_battery/thermal_management,2021 Ford Mustang Mach-E,546.0,medium,EV estimate extraction / explanation / questions
+26,26_ev_ac_charging_port_estimate.pdf,estimate,ev,charging_system,2022 Hyundai IONIQ 5,802.58,medium,EV estimate extraction / explanation / questions
+27,27_ev_battery_thermal_management_estimate.pdf,estimate,ev,thermal_management,2020 Chevrolet Bolt EV,653.67,medium,EV estimate extraction / explanation / questions
+28,28_ev_drive_unit_noise_estimate.pdf,estimate,ev,drive_unit,2020 Nissan LEAF,385.0,medium,EV estimate extraction / explanation / questions
+29,29_ev_12v_dc_dc_estimate.pdf,estimate,ev,low_voltage_electrical,2022 Kia EV6,600.36,medium,EV estimate extraction / explanation / questions
+30,30_ev_regen_brake_inspection_estimate.pdf,estimate,ev,brakes/regenerative_braking,2021 Volkswagen ID.4,342.0,medium,EV estimate extraction / explanation / questions

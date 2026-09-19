@@ -1,0 +1,16 @@
+﻿.coverage-badge { display: inline-flex; align-items: center; gap: 4px; border-radius: 20px; padding: 4px 9px; font-family: var(--font-body, sans-serif); font-size: 11px; font-weight: 600; line-height: 1.35; vertical-align: middle; color: #53616b; background: #eff2f4; white-space: nowrap; }
+.coverage-warranty.coverage-badge, .coverage-record.coverage-badge { background: #e5f4e9; color: #225b38; }
+.coverage-insurance.coverage-badge { background: #e7f0ff; color: #275495; }
+.coverage-expired.coverage-badge { background: #fff2dd; color: #805812; }
+.item-title .coverage-badge { margin-left: 10px; }
+.item-coverage { border: 1px solid #dce7e0; border-radius: 12px; margin: 0 0 22px; padding: 0 14px; background: #fbfdfb; }
+.item-coverage > summary { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; cursor: pointer; padding: 12px 0; list-style: none; font-size: 12px; color: #53616b; }
+.item-coverage > summary::after { content: '+'; margin-left: auto; font-size: 18px; }
+.item-coverage[open] > summary::after { content: '\2212'; }
+.item-coverage > summary::-webkit-details-marker { display: none; }
+.item-coverage-body { border-top: 1px solid #e0e8e1; padding-bottom: 14px; font-size: 14px; line-height: 1.6; }
+.item-coverage-body p { margin: 10px 0; }
+.item-coverage-body strong { margin-right: 5px; }
+.item-coverage-body a { display: inline-block; color: #225b38; text-decoration: underline; margin-top: 4px; }
+.item-coverage :focus-visible { outline: 3px solid #317bba; outline-offset: 3px; }
+@media(max-width: 700px) { .item-title .coverage-badge { display: table; margin: 7px 0 0; font-size: 10px; } .item-coverage > summary { gap: 7px; } }

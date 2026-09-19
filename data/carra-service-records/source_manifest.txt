@@ -1,0 +1,32 @@
+Carra Service Record Dataset - Design Notes
+
+All 24 PDFs in this package are ORIGINAL SYNTHETIC documents created for hackathon development and evaluation.
+They contain no real customer data and do not reproduce third-party documents.
+
+Document patterns included:
+- completed repair records
+- maintenance records
+- diagnostic-only records
+- inspection reports
+- warranty repairs
+- courtesy follow-up
+- declined/deferred work
+- additional authorization followed by completion
+- multi-page history
+- degraded phone-photo scan
+- abbreviation-heavy compact receipt
+
+The dataset is designed around the key service-history distinctions:
+Customer Concern -> Technician Findings -> Work Performed -> Recommendations / Warranty.
+
+
+EV ADD-ON
+Samples 25-30 are original synthetic BEV documents designed to exercise:
+- high-voltage battery diagnostics
+- AC charging inlet/system
+- battery thermal management
+- electric drive unit
+- 12V/DC-DC low-voltage system
+- regenerative + friction braking
+
+No sample is intended as OEM repair guidance.
