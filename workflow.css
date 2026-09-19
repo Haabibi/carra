@@ -124,16 +124,23 @@ body[data-screen=workflow] #ask-bar { display: none !important; }
   .upload-row > span { min-width: 120px; }
   .report-tools { flex-wrap: wrap; }
   .report-tools .btn { padding-inline: 5px; }
-  #report-layout .glance { padding-block: 16px; }
+  #report-layout .glance { padding-block: 12px; }
   #report-layout .report-header { margin-bottom: 12px; }
-  #report-layout .key-points { margin-block: 12px; }
+  #report-layout .key-points { margin-block: 8px; }
   #report-layout .key-point { padding-block: 8px; }
-  /* The summary repeats the headline and checklist. Keep the first layer within
-     one phone viewport; the same information remains in the key points. */
+  /* Keep the summary compact; visit scope and the tailored question expand on demand. */
   #report-layout .read-summary { display: none; }
+  #report-layout .read-summary.is-expanded { display: grid; }
+  #read-summary-toggle { display: inline-flex; margin-top: 8px; padding: 4px 0; min-height: 30px; font-size: 13px; text-decoration: underline; }
+  #key-points .key-point > div:first-of-type { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: start; }
+  #key-points .meta-row { margin: 0; }
+  #key-points .meta-row .quote-chip { display: inline-flex; }
+  #key-points .meta-row .quote-chip .pub { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .scan-beam { display: none; } }
 @media print {
+  #read-summary-toggle { display: none !important; }
+  #report-layout .read-summary { display: grid !important; }
   body { background: white; color: black; font-size: 11pt; }
   .topbar, .mode-banner, .report-tools, .evidence, #ask, #ask-bar, .toast, .glance-actions, .question-actions, .report-header button, .disclosure-summary { display: none !important; }
   .layout { display: block; padding: 0; }

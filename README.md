@@ -26,6 +26,8 @@ Copy `.env.example` to `.env` if it does not exist, set `GEMINI_API_KEY` locally
 
 ## Verification
 
+All 60 sample reports have document-specific summaries, work scope, and follow-up questions. Takeaways prioritize conditional work, approval changes, deposits, authorization limits, recorded outcomes, and cost drivers, with expandable evidence. Editing source details drops the curated narrative and recomputes the summary from reviewed values. On mobile, **Visit details & next step** expands the supporting context. Run `node scripts/test-summary-browser.mjs` to check every sample.
+
 ```sh
 npm run check
 node scripts/test-documents.mjs

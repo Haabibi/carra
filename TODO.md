@@ -1,5 +1,22 @@
 # Carra implementation TODO
 
+## Shared home-page design
+
+- [x] Carry home typography, off-white surfaces, blue actions, soft cards, and teal/lime accents into all app pages
+- [x] Add companion artwork to intake/review/progress headers and active navigation states
+- [x] Restyle report items, document viewers, My page, and profile onboarding
+- [x] Preserve mobile report density and respect reduced-motion preferences
+
+## Document-specific report analysis
+
+- [x] Review all 60 supplied examples and author distinct scope/headline/next-question narratives
+- [x] Prioritize approval changes, declined work, provisional replacements, deposits, limits, outcomes, and cost drivers
+- [x] Attach evidence from reviewed amounts/statuses and original dataset notes; remove generic public-record filler from the short summary
+- [x] Distinguish service record, invoice, and estimate labels
+- [x] Recompute facts and drop curated conclusions when source work, status, concern, or totals change
+- [x] Verify all 60 rendered summaries, valid citations, missing amounts, and stale-payment protection
+- [x] Add expandable mobile visit details and tailored next question
+
 ## Compact protection and My page
 
 - [x] Replace the large protection section with per-item coverage badges and expandable plan details

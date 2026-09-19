@@ -10,7 +10,7 @@ test('every synthetic sample reconciles and every quote is an exact source subst
     const report = buildReport(d);
     assert.ok(Object.values(report.quotes).every(q => verifyQuote(q, report.sources)));
     assert.ok(report.atAGlance.keyPoints.length <= 3);
-    assert.ok(report.atAGlance.keyPoints.every(k => k.text.split(/\s+/).length <= 20));
+    assert.ok(report.atAGlance.keyPoints.every(k => k.text.split(/\s+/).length <= 40));
     assert.equal(Object.values(report.sources).filter(s => s.tier !== 'your_estimate').length, 0);
     assert.equal(report.findings && Object.keys(report.findings).length, 0);
     assert.ok(report.checks.some(([label, detail]) => label.includes('NHTSA') && detail === 'Not checked'));

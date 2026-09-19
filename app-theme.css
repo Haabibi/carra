@@ -1,0 +1,99 @@
+/* Shared visual language from the Carra home page. Source PDFs retain their own styling. */
+body:not(.landing-page) {
+  --bg: #fafbf9;
+  --surface-raised: #edf2f3;
+  --text: #142f39;
+  --text-muted: #5b6c72;
+  --rule: #dce3e3;
+  --rule-strong: #bbc5c8;
+  --record: #275ddd;
+  --brand-blue: #275ddd;
+  background: var(--bg);
+}
+body:not(.landing-page) .topbar { max-width: 1440px; height: 86px; padding: 0 6.1%; margin: auto; border: 0; }
+body:not(.landing-page) .brand { font-size: 30px; letter-spacing: -.8px; }
+body:not(.landing-page) .brand-mark { background: #142f39; color: white; width: 31px; height: 31px; border: 0; border-radius: 9px; font-size: 22px; }
+body:not(.landing-page) .top-nav { gap: 28px; align-items: center; }
+body:not(.landing-page) .topbar-link { font-size: 15px; color: var(--text); }
+body:not(.landing-page) .topbar-link:last-child { border: 1px solid #bbc5c8; border-radius: 7px; padding: 9px 20px; }
+.top-nav a[aria-current=page] { text-decoration: underline; text-underline-offset: 6px; text-decoration-color: #275ddd; }
+body:not(.landing-page) .mode-banner { background: #edf2f3; border-block: 1px solid #e3e9e8; color: #5b6c72; font-size: 12px; }
+body:not(.landing-page) .workflow { max-width: 1280px; padding: 48px 48px 88px; }
+body:not(.landing-page) .flow-header { position: relative; max-width: none; padding: 0 180px 28px 0; margin-bottom: 32px; border-bottom: 1px solid var(--rule); min-height: 178px; }
+body:not(.landing-page) .flow-header::after { content: ''; position: absolute; right: 8px; top: 0; width: 142px; height: 142px; background: #e6edf4 url('design/carra-character/carra-agent.png') center / 108px no-repeat; border: 1px solid #dbe4e8; border-radius: 50%; box-shadow: 0 0 0 12px #f1f4f4; }
+body:not(.landing-page) .flow-header h1, body:not(.landing-page) .my-heading h1 { font-size: clamp(36px, 4.2vw, 58px); font-weight: 500; letter-spacing: -.035em; line-height: 1.08; max-width: 790px; }
+body:not(.landing-page) .flow-header > p:last-child { max-width: 650px; font-size: 17px; line-height: 1.65; }
+body:not(.landing-page) .eyebrow { color: #546b73; font-size: 13px; font-weight: 500; letter-spacing: .025em; }
+body:not(.landing-page) .btn { border-radius: 7px; font-weight: 500; transition: background .18s, box-shadow .18s, transform .18s; }
+body:not(.landing-page) .btn-primary { background: #275ddd; color: #fff; box-shadow: 0 3px 0 #2048a7; }
+body:not(.landing-page) .btn-primary:hover:not(:disabled) { background: #1b4dc1; transform: translateY(-1px); }
+body:not(.landing-page) .btn-secondary:hover { background: #edf1ef; }
+body:not(.landing-page) :is(input, select, textarea):focus-visible { outline: 2px solid #275ddd; outline-offset: 3px; }
+body:not(.landing-page) :is(.field input, .field select, .field textarea) { border-radius: 8px; }
+body:not(.landing-page) .document-intake { gap: 32px; grid-template-columns: minmax(300px, .85fr) minmax(0, 1.3fr); }
+body:not(.landing-page) .document-controls { background: white; border: 1px solid var(--rule); border-radius: 14px; padding: 26px; }
+body:not(.landing-page) .mode-tabs { gap: 4px; background: #edf2f3; padding: 5px; border-radius: 10px; }
+body:not(.landing-page) .mode-tabs .btn { border: 0; box-shadow: none; min-height: 42px; }
+body:not(.landing-page) .mode-tabs .btn-primary { background: white; color: #275ddd; box-shadow: 0 2px 7px #24495612; }
+body:not(.landing-page) .document-facts { background: #f2f5f6; border: 0; border-radius: 10px; }
+body:not(.landing-page) .document-preview { border-radius: 14px; background: #edf2f3; box-shadow: 0 12px 30px #25495408; }
+body:not(.landing-page) .document-drop { background: #f6f8fc; border-color: #aabde6; border-radius: 10px; padding-block: 32px; }
+body:not(.landing-page) .document-next { color: #546b73; }
+body:not(.landing-page) :is(.entry-panel, .edit-item, .review-summary) { border-radius: 12px; box-shadow: 0 5px 18px #24495605; }
+body:not(.landing-page) .review-summary { background: #edf2f3; padding: 26px; }
+body:not(.landing-page) .review-footer { padding-block: 24px; }
+body:not(.landing-page) .scan-preview { border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px #25495408; }
+body:not(.landing-page) .progress-grid > section { background: #edf2f3; border-radius: 14px; padding: 28px; }
+body:not(.landing-page) .analysis-steps [data-status=running] .step-number { background: #275ddd; border-color: #275ddd; box-shadow: 0 0 0 5px #dfe8fc; }
+body:not(.landing-page) .analysis-steps [data-status=done] .step-number { background: #e7efdf; border-color: #a4ba95; }
+body:not(.landing-page) .scan-beam { background: #275ddd; box-shadow: 0 0 20px #275ddd66; }
+body:not(.landing-page) .report-header h1 { font-weight: 500; letter-spacing: -.025em; }
+body:not(.landing-page) .section h2 { font-weight: 500; }
+body:not(.landing-page) .viewer { background: #edf2f3; padding: 18px; border: 1px solid var(--rule); border-radius: 14px; }
+body:not(.landing-page) .viewer-frame { border-radius: 8px; }
+body:not(.landing-page) .read-summary > div { border-radius: 10px; border-color: #dce3e3; }
+body:not(.landing-page) .read-summary > div:last-child { background: #eef3fc; }
+body:not(.landing-page) .item { background: #fff; border: 1px solid var(--rule); border-radius: 12px; margin-block: 12px; overflow: hidden; }
+body:not(.landing-page) .item-row { padding: 18px 16px; }
+body:not(.landing-page) .item-row:hover { background: #f1f5fb; }
+body:not(.landing-page) .carra-read-avatar { background: #e6edf4; border-color: #dbe4e8; }
+body:not(.landing-page) .garage-hero { background: #193b46; border-radius: 14px; padding: 36px; }
+body:not(.landing-page) .garage-hero .btn { background: #e4efb9; color: #263c27; box-shadow: none; }
+body:not(.landing-page) .garage-icon { color: #d8e8b0; }
+body:not(.landing-page) .plan-card { border-radius: 12px; border-color: #dce3e3; }
+body:not(.landing-page) .warranty-card { background: #f0f4e9; }
+body:not(.landing-page) .library-file-icon { background: #eef3fc; color: #275ddd; border-color: #d9e2f6; }
+body:not(.landing-page) .library-row { padding-inline: 12px; border-radius: 8px; transition: background .18s; }
+body:not(.landing-page) .library-row:hover { background: #edf2f3; }
+body:not(.landing-page) .profile-setup { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 32px; }
+body:not(.landing-page) .setup-steps [aria-current] { color: #275ddd; border-color: #275ddd; }
+@media (prefers-reduced-motion: no-preference) {
+  body:not(.landing-page) :is(.document-intake, .review-grid, .progress-grid, .my-page) { animation: carra-page-in .3s ease-out; }
+  @keyframes carra-page-in { from { opacity: .3; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}
+@media (max-width: 800px) {
+  body:not(.landing-page) .document-intake { grid-template-columns: 1fr; }
+  body:not(.landing-page) .workflow { padding: 32px 22px 64px; }
+}
+@media (max-width: 760px) {
+  body:not(.landing-page) .topbar { height: 64px; padding-inline: 20px; }
+  body:not(.landing-page) .brand { font-size: 25px; }
+  body:not(.landing-page) .top-nav { gap: 14px; }
+  body:not(.landing-page) .topbar-link { font-size: 12px; }
+  body:not(.landing-page) .topbar-link:last-child { padding: 7px 10px; }
+  body:not(.landing-page) .flow-header { padding: 0 0 22px; min-height: 0; margin-bottom: 24px; }
+  body:not(.landing-page) .flow-header::after { width: 44px; height: 44px; background-size: 38px; right: 0; top: -8px; box-shadow: none; }
+  body:not(.landing-page) .flow-header > .eyebrow { padding-right: 54px; min-height: 30px; display: flex; align-items: center; }
+  body:not(.landing-page) .flow-header h1 { font-size: 38px; }
+  body:not(.landing-page) .document-controls { padding: 20px; }
+  body:not(.landing-page) .progress-grid > section { padding: 22px; }
+  body:not(.landing-page) .garage-hero { padding: 24px; }
+  body:not(.landing-page) .profile-setup { padding: 24px 20px; }
+  body:not(.landing-page) .item-row { padding: 14px 12px; }
+  body:not(.landing-page) .viewer { padding: 12px; }
+}
+@media print {
+  body:not(.landing-page) { background: white; }
+  body:not(.landing-page) .flow-header::after { display: none; }
+  body:not(.landing-page) :is(.viewer, .item, .review-summary, .scan-preview) { box-shadow: none; }
+}

@@ -19711,6 +19711,114 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
     return _coercedDate(ZodDate, params);
   }
 
+  // lib/dataset-narratives.js
+  var narratives = {
+    "01": ["Front brake work is proposed for the vibration.", "Pads, both front rotors, and brake labor are quoted together.", "Can you show the rotor measurements behind this proposal?", "Front brake work and a road test are complete.", "The shop replaced front pads and rotors, then road tested the car.", "What did the final road test confirm about the vibration?"],
+    "02": ["Oil service and both air filters are recorded as done.", "This invoice combines oil/filter service with engine and cabin air filters.", "Which mileage or date should I use for the next service?", "Oil and filter maintenance is complete.", "The visit covered engine oil, the engine air filter, and cabin air filter.", "What service date or mileage did you set in the reminder?"],
+    "03": ["The battery proposal depends on testing.", "Charging-system testing and an AGM battery are listed for the slow start.", "Does the test support replacement, and is the core charge waived?", "Battery testing and installation are complete.", "The shop checked the battery and charging system, then installed an AGM battery.", "Can I keep the test results and the new battery warranty?"],
+    "04": ["Four tires, fitting, and alignment are quoted.", "The proposal combines a full tire set with balancing and alignment.", "Does the tire quote include any road-hazard protection?", "Four tires and an alignment are recorded as complete.", "The tires were installed and balanced, followed by four-wheel alignment.", "Can I keep the before-and-after alignment printout?"],
+    "05": ["Both front control arms and alignment are proposed.", "The shop lists left and right control arms for the clunk over bumps.", "Can you show the bushing play noted on each side?", "Both front control arms were replaced.", "The repair includes both control arms and a follow-up alignment.", "What did the follow-up check show about the clunk?"],
+    "06": ["A/C testing comes before a recharge decision.", "Performance testing is approved; leak testing and recharge have different approval states.", "What did the leak test find before we approve a recharge?", "The A/C visit included a seal repair and recharge.", "Performance testing, service-port seal replacement, and refrigerant service are recorded.", "What vent temperature was measured after the service?"],
+    "07": ["Leak testing is approved; hose work is proposed.", "The quote separates pressure testing from the hose and coolant service.", "Did the pressure test find any leak beyond the upper hose?", "Cooling-system testing and hose repair are complete.", "The shop replaced the upper hose and refilled and bled the coolant.", "Can you share the final pressure-test result?"],
+    "08": ["This is a diagnostic visit, not a parts repair.", "Computer diagnostics are approved; an EVAP smoke test is also proposed.", "Which fault codes and smoke-test results explain the next step?", "Diagnostics, a smoke test, and fuel-cap replacement are recorded.", "The visit moved from investigating the warning light to a fuel-cap repair.", "When will the readiness monitors be ready for a recheck?"],
+    "09": ["Charging testing is approved; replacement work is proposed.", "The alternator and belt are listed alongside the electrical test.", "Can I see the charging-test sheet behind the alternator proposal?", "The charging visit included an alternator and belt.", "Testing, alternator replacement, and belt replacement are recorded as completed.", "What charging voltage was measured after the repair?"],
+    "10": ["This quote combines brake work and maintenance.", "Pads and a wear sensor sit alongside oil, cabin filter, and brake-fluid service.", "Can you separate the brake findings from scheduled maintenance?", "Brake work and maintenance share this visit.", "The record includes pads, a wear sensor, oil, cabin filter, and brake fluid.", "What pad measurements and next-service dates were recorded?"],
+    "11": ["Testing is approved, not a transmission replacement.", "A road-test diagnostic and pan inspection are listed for the warm shift slip.", "What did the inspection find, and what would the next estimate cover?", "The transmission visit stopped at diagnosis and inspection.", "A road test and pan inspection were completed; this is not a rebuild record.", "What findings support the next repair options and estimate?"],
+    "12": ["The starter replacement is still provisional.", "The call-out and no-start diagnosis are approved; the starter depends on findings.", "Did testing confirm the starter before replacement is authorized?", "The mobile visit ended with starter replacement.", "The record includes the call-out, on-site diagnosis, and starter repair.", "What warranty applies to the installed starter and labor?"],
+    "13": ["This is an oil-service invoice.", "The oil-service package and oil filter are both recorded as performed.", "Is the next-service reminder based on mileage or time?", "Oil service and filter installation are complete.", "The visit records synthetic oil service and a separate oil-filter line.", "Which oil specification and next-service interval were recorded?"],
+    "14": ["Two rear tires and alignment are recorded as done.", "This invoice covers the rear pair, fitting/balancing, and four-wheel alignment.", "Can I keep the alignment results and front tread measurement?", "Rear tires were fitted, balanced, and aligned.", "Two rear tires and a four-wheel alignment are recorded as completed.", "Can I keep the final alignment measurements?"],
+    "15": ["The water-pump invoice includes a repair warranty.", "Water pump and coolant are recorded as performed with a written repair-warranty note.", "How do I use the listed parts-and-labor warranty if a leak returns?", "A water-pump warranty return is recorded at no charge.", "Resealing the pump and refilling coolant are both marked as warranty work.", "Can I keep the warranty claim number and final pressure-test result?"],
+    "16": ["The invoice separates the repair total from the balance due.", "Front pads, rotors, and labor are recorded; the prior deposit reduces the remaining balance.", "Does the pickup balance already include my deposit?", "This was a no-charge brake follow-up.", "The shop checked the previous front brake installation and road tested the car.", "What did the inspection show about the reported odor?"],
+    "17": ["Only the initial inspection is approved.", "The document authorizes a chassis inspection, with a cap on further spending.", "Will you call with findings before any additional authorization?", "The rattle visit included a small fastener repair.", "A chassis inspection and securing the underbody shield are recorded as completed.", "Which fasteners were secured, and was the rattle rechecked?"],
+    "18": ["Diagnostics are approved; ignition repairs are proposed.", "The quote separates engine testing, the cylinder-2 coil, and a spark-plug set.", "Which results point to cylinder 2 and support the plug proposal?", "The ignition visit included a coil and spark-plug set.", "Engine testing, cylinder-2 coil replacement, and spark plugs are recorded as complete.", "Can I keep the diagnostic results and parts warranty?"],
+    "19": ["Rear pads and rotors are quoted separately.", "Each rear-brake line includes its own parts and labor amounts.", "Is shared labor accounted for when pads and rotors are done together?", "Rear pads and both rear rotors were replaced.", "The record separates pad and rotor charges for the brake-squeal visit.", "What did the final check show about the squeal?"],
+    "20": ["Approved work and declined work are different groups.", "Oil service and wipers are approved; the cabin filter and brake fluid were declined.", "Can you confirm the payable total excludes work I declined?", "The trip check records both completed and declined work.", "Oil service and wipers were done; the cabin filter and brake fluid were declined.", "Can you keep the declined items separate from the completed-service history?"],
+    "21": ["The rotor addition still needs approval.", "The pads were approved earlier; the rotor work is a separate authorization decision.", "What is the added rotor amount before I approve the change?", "Rotor work was added with recorded customer approval.", "The record distinguishes the original pad job from the later authorized rotor work.", "Can I keep the added-work authorization with this receipt?"],
+    "22": ["This is a multi-job quote, not one repair.", "Diagnostics, brakes, filters, brake fluid, and a coolant hose are listed separately.", "Can you group findings by job so I can approve each scope?", "Diagnostics, repairs, and maintenance share this record.", "The visit spans brakes, filters, fluid service, a coolant hose, and diagnostic work.", "Can I get the diagnostic findings and next-service dates in one summary?"],
+    "23": ["Front pads and rotors are proposed for the grinding.", "The quote separates the front pad and rotor work.", "Can you show the pad and rotor measurements behind the proposal?", "Front pads and rotors were replaced.", "Both front-brake replacement lines are marked completed.", "What did the post-repair brake check show?"],
+    "24": ["The receipt combines charging, battery, and oil work.", "The abbreviated lines refer to charging diagnosis, an AGM battery, and oil/filter service.", "Can you confirm the battery specification and its warranty?", "The compact record combines battery and oil service.", "DIAG CHG SYS, BAT AGM 51R, and SYN OIL+FILT identify the three recorded services.", "Can I get the abbreviated receipt expanded for my service history?"],
+    "25": ["Battery investigation is quoted, not a new battery pack.", "The scope is a scan, electrical-isolation testing, and thermal-system inspection.", "What do the isolation and scan results show about the next step?", "The high-voltage battery visit was diagnostic only.", "Scanning, insulation testing, and thermal-system inspection were completed.", "What findings came from these tests, and is another estimate expected?"],
+    "26": ["Charge-port replacement depends on the diagnostic result.", "Charging diagnostics are approved; inspection and the lock actuator are separate lines.", "Did testing identify the actuator as the cause before replacement?", "The charging visit included a charge-port actuator repair.", "The shop tested charging, inspected the connection, and replaced the lock actuator.", "Was stable AC charging confirmed after replacing the actuator?"],
+    "27": ["The quote concerns battery cooling, not battery cells.", "Diagnostics, coolant-circuit service, and a leak inspection are listed.", "Which thermal-system finding supports the coolant service?", "Battery cooling service and checks are complete.", "The record lists thermal diagnostics, coolant-circuit service, and a leak inspection.", "What checks confirmed the thermal-system message was resolved?"],
+    "28": ["Drive-unit investigation is quoted, not replacement.", "The scope combines a noise road test, mount inspection, and gear-fluid inspection.", "What did the road test and mount inspection reveal?", "The noise visit included a drive-unit mount replacement.", "The shop investigated the noise, inspected mounts, and replaced a worn mount.", "What changed in the verification road test after the mount repair?"],
+    "29": ["This is the small 12V system, not the traction battery.", "Battery testing is approved; charging diagnosis is proposed and replacement is conditional.", "Did both tests support replacing the 12V battery?", "The 12V visit included testing and a new small battery.", "The shop tested the battery and DC-DC system, then replaced the 12V AGM battery.", "What did the charging-system test show alongside the battery replacement?"],
+    "30": ["The quote is for brake checks, not replacement parts.", "It separates regenerative-system scanning, mechanical measurements, and a fluid test.", "What do the measurements show about the pedal-feel concern?", "This brake visit was an inspection, with no parts replaced.", "The shop checked regenerative braking, measured mechanical brakes, and tested fluid.", "What measurements explain the low-speed pedal feel, and is follow-up planned?"]
+  };
+
+  // lib/report-summary.js
+  var done = /* @__PURE__ */ new Set(["completed", "performed", "warranty_completed", "courtesy_check", "completed_after_additional_authorization"]);
+  var short = (value) => {
+    const words = value.split(/\s+/);
+    return words.slice(0, 7).join(" ") + (words.length > 7 ? "\u2026" : "");
+  };
+  function summarizeReport(d, { money: money2, reconciliation, sources, quotes }) {
+    const service = d.documentKind === "service_record";
+    const invoice = !service && d.documentType === "invoice";
+    const sourceLabel = service ? "From your service record" : invoice ? "From your invoice" : "From your estimate";
+    const sourceItems = d.sourceData?.items || d.sourceData?.work_performed;
+    const matches = d.origin === "dataset" && Array.isArray(sourceItems) && sourceItems.length === d.items.length && d.total === d.sourceData.totals?.total && d.tax === d.sourceData.totals?.tax && d.concern === (d.sourceData.customer_concern || "") && d.items.every((item2, i) => item2.title === sourceItems[i].normalized_title && item2.source_text === sourceItems[i].source_text && item2.status === sourceItems[i].status && item2.total === sourceItems[i].line_total);
+    const narrative = matches ? narratives[d.sampleId.split("-").at(-1)] : null;
+    const rows = d.items.map((item2, i) => ({ ...item2, i }));
+    const approved = rows.filter((i) => ["authorized", "approved"].includes(i.status));
+    const proposed = rows.filter((i) => i.status === "recommended");
+    const completed = rows.filter((i) => done.has(i.status));
+    const pending = rows.filter((i) => i.status === "pending_diagnosis");
+    const extra = rows.filter((i) => i.status === "additional_authorization_required");
+    const declined = rows.filter((i) => i.status === "declined");
+    const context = rows.map((i) => `Line ${i.i + 1}: ${i.title}. Status: ${i.status}. Listed amount: ${money2(i.total)}.`);
+    const totalText = `Listed total: ${money2(d.total)}. Fees: ${money2(d.fees)}. Tax: ${money2(d.tax)}.`;
+    context.push(totalText);
+    const notes = matches && typeof d.sourceData.notes === "string" && !/simulated|OCR testing|compact receipt uses|parts and labor shown|two-page|completed and declined items/i.test(d.sourceData.notes) ? d.sourceData.notes : null;
+    if (notes) context.push(`Shop note: ${notes}`);
+    const originalTotals = matches && d.total === d.sourceData.totals?.total ? d.sourceData.totals : null;
+    const payment = originalTotals && typeof originalTotals.deposit === "number" && typeof originalTotals.balance_due === "number" ? `Deposit recorded: ${money2(originalTotals.deposit)}. Balance due: ${money2(originalTotals.balance_due)}.` : null;
+    if (payment) context.push(payment);
+    const limit = matches ? d.sourceData.authorization_limit : null;
+    if (typeof limit === "number") context.push(`Authorization limit: ${money2(limit)}.`);
+    sources.S1 = { id: "S1", tier: "your_estimate", publisher: service ? "Your service record" : invoice ? "Your invoice" : "Your document", title: `${d.shop}, reviewed details`, originalText: context.join("\n") };
+    const addQuote = (id, text2, locator) => {
+      quotes[id] = { id, sourceId: "S1", locator, text: text2.match(/^(?:\S+\s*){1,40}/)?.[0].trim() || text2 };
+      return id;
+    };
+    rows.forEach((i) => addQuote(`D${i.i + 1}`, context[i.i], `Line ${i.i + 1} details`));
+    addQuote("DT", totalText, "Totals");
+    if (notes) addQuote("DN", `Shop note: ${notes}`, "Shop note");
+    if (payment) addQuote("DP", payment, "Payment details");
+    if (typeof limit === "number") addQuote("DL", `Authorization limit: ${money2(limit)}.`, "Authorization");
+    const refs = (list) => list.map((i) => `D${i.i + 1}`);
+    const names = (list) => list.slice(0, 2).map((i) => short(i.title)).join(" + ") + (list.length > 2 ? ` + ${list.length - 2} more` : "");
+    const sum = (list) => list.every((i) => i.total != null) ? money2(list.reduce((n, i) => n + i.total, 0)) : null;
+    const candidates = [];
+    const add = (text2, quoteIds, priority = 0) => candidates.push({ text: text2, quoteIds, priority, provenance: sourceLabel });
+    if (reconciliation.incomplete) add("Some amounts are missing. Confirm the total before treating this as a complete bill.", ["DT"], 100);
+    else if (reconciliation.needsReview) add(`The listed total differs from lines plus fees and tax by ${money2(reconciliation.difference)}.`, ["DT", ...refs(rows)], 100);
+    if (extra.length) add(`Not yet approved: ${names(extra)}${sum(extra) ? ` (${sum(extra)})` : ""}.`, refs(extra), 95);
+    if (declined.length) add(`Declined, not completed: ${names(declined)}.`, refs(declined), 94);
+    if (pending.length) add(`Still conditional: ${names(pending)}${sum(pending) ? ` (${sum(pending)})` : ""}.`, refs(pending), 93);
+    if (payment) add(`${money2(originalTotals.deposit)} deposit recorded; ${money2(originalTotals.balance_due)} remains due, rather than the full invoice total.`, ["DP"], 98);
+    if (typeof limit === "number") add(`Authorization is capped at ${money2(limit)}; confirm any additional work before it begins.`, ["DL"], 97);
+    const redundantNote = notes && (payment && /deposit|balance/i.test(notes) || typeof limit === "number" && /authorization/i.test(notes) || extra.length && /authoriz/i.test(notes) || pending.length && /provisional|not authorized until|subject to test/i.test(notes) || declined.length && /approved and declined/i.test(notes));
+    if (notes && !redundantNote) add(`Shop note: ${notes}`, ["DN"], 80);
+    if (approved.length && (proposed.length || extra.length || pending.length)) add(`Approved scope: ${names(approved)}${sum(approved) ? ` \u2014 ${sum(approved)} before fees/tax` : ""}.`, refs(approved), 75);
+    const largest = rows.filter((i) => i.total > 0 && i.status !== "declined").sort((a, b) => b.total - a.total)[0];
+    const duplicateLargest = largest && (pending.includes(largest) || extra.includes(largest) || approved.length === 1 && approved[0] === largest && (proposed.length || pending.length || extra.length));
+    if (largest && !duplicateLargest) add(`Largest line: ${short(largest.title)} at ${money2(largest.total)}.`, refs([largest]), 70);
+    const laborOnly = rows.every((i) => i.parts === 0 && i.labor != null && i.total === i.labor && !i.other);
+    if (laborOnly && rows.some((i) => i.total > 0)) add(`${sum(rows)} in listed work is labor; no parts charge is recorded.`, refs(rows), 71);
+    if (d.fees != null && d.tax != null && d.fees + d.tax > 0) add(`${money2(d.fees + d.tax)} of the total is fees and tax${d.fees > 0 ? ` (${money2(d.fees)} fees)` : ""}.`, ["DT"], 60);
+    if (completed.length) add(`Completed: ${names(completed)}.`, refs(completed), 55);
+    if (proposed.length) add(`Proposed, not recorded as approved: ${names(proposed)}.`, refs(proposed), 56);
+    if (d.total === 0) add("The document lists a $0 total for this visit. Keep it as a service-history record.", ["DT"], 90);
+    const keyPoints = candidates.sort((a, b) => b.priority - a.priority).slice(0, 3).map((c, i) => ({ id: `K${i + 1}`, text: c.text, provenance: c.provenance, quoteIds: c.quoteIds }));
+    const workLabel = service ? "Work recorded" : invoice ? "Invoice covers" : "Work proposed";
+    const genericQuestion = extra.length ? "What is the extra scope and amount before I approve it?" : pending.length ? `What test result determines ${short(pending[0].title).toLowerCase()}?` : declined.length ? "Can you separate the declined items from the completed or approved work?" : completed.length === rows.length ? "What results and repair warranties can I keep with this record?" : `What findings support ${short(rows[0].title).toLowerCase()}?`;
+    const headline = narrative ? narrative[service ? 3 : 0] : `${service || invoice ? "This visit covers" : "This proposal covers"} ${short(rows[0].title).toLowerCase()}${rows.length > 1 ? " and related work" : ""}.`;
+    const estimateRequest = narrative ? narrative[service ? 4 : 1] : `${names(completed.length ? completed : rows)}${completed.length ? " is recorded as completed." : "; check the approval status of each line."}`;
+    const simpleNextStep = narrative ? narrative[service ? 5 : 2] : genericQuestion;
+    const totalLine = `${money2(d.total)} ${service || invoice ? "recorded" : "quoted"} total.${reconciliation.incomplete ? " Some amounts are not stated." : reconciliation.needsReview ? " The line totals do not match." : ""}`;
+    return { headline, estimateRequest, simpleNextStep, totalLine, keyPoints, sourceLabel, workLabel, curated: Boolean(narrative) };
+  }
+
   // lib/coverage.js
   var demoProtection = {
     warranty: { name: "Carra Care", terms: "Electrical protection", detail: "Component defects and associated diagnostic testing, through September 19, 2027 or 60,000 miles. Routine maintenance, wear, and 12-volt battery replacement excluded. Repair authorization required." },
@@ -19957,24 +20065,15 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
       return [`Q${index + 1}`, { id: `Q${index + 1}`, sourceId: "S0", locator: `Line ${index + 1}`, itemIndex: index, text: excerpt }];
     }));
     if (!Object.values(quotes).every((q) => verifyQuote(q, sources))) throw new Error("Quote verification failed");
-    const pending = d.items.filter((i) => i.status === "pending_diagnosis").length;
-    const recommended = d.items.filter((i) => i.status === "recommended").length;
-    const keyPoints = [
-      { id: "K1", text: `${d.items.length} line items are listed in this ${service ? "service record" : "document"}.`, provenance: service ? "From your document" : "From your estimate", quoteIds: Object.keys(quotes) },
-      { id: "K2", text: service ? "This document records past work. Check each item\u2019s completion status and keep it with your service history." : pending ? `${pending} item depends on testing. Confirm the results before approving more work.` : `${recommended} items are marked recommended. Ask which work is awaiting your approval.`, provenance: "General info" },
-      { id: "K3", text: "Public records were not checked. You can ask your dealer to check recalls by VIN.", provenance: "General info" }
-    ];
+    const summary = summarizeReport(d, { money, reconciliation: reconcile(d), sources, quotes });
+    if (!Object.values(quotes).every((q) => verifyQuote(q, sources))) throw new Error("Summary quote verification failed");
     const questions = [
-      { q: "What did the inspection or tests show?", reason: "Ask for the findings behind the listed work.", priority: 1 },
-      { q: "Which items are approved, and which are still awaiting my approval?", reason: "Confirm the scope before work begins.", priority: 1 },
-      { q: "Can you check recalls for my VIN?", reason: "Public records were not checked in this report.", priority: 2 },
-      { q: "Could any amounts change after testing?", reason: "Confirm how changes will be approved.", priority: 2 },
-      { q: "Can you show me the parts and labor breakdown?", reason: "Confirm what is included in each line.", priority: 3 }
+      { q: summary.simpleNextStep, reason: "Focus on the decision or follow-up in this document.", priority: 1 },
+      { q: service ? "Can I keep the test results and any repair warranty with this record?" : "What is included in the listed parts, labor, and fees?", reason: service ? "Keep evidence of the visit and its protection." : "Confirm the scope behind the amounts.", priority: 1 },
+      { q: service ? "Is any follow-up still outstanding after this visit?" : "Will you confirm any changed scope or amount before proceeding?", reason: "Separate this document from any later work.", priority: 2 },
+      { q: "Could any of this work fall under my warranty or insurance?", reason: "Check the actual plan and approval requirements.", priority: 2 },
+      { q: "Can you check recalls for my VIN?", reason: "Public records were not checked in this report.", priority: 3 }
     ];
-    if (service) {
-      questions[1] = { q: "Can you confirm which work was completed during this visit?", reason: "Check the record of completed work.", priority: 1 };
-      questions[3] = { q: "Is there any follow-up documented for this visit?", reason: "Confirm the next steps with the shop.", priority: 2 };
-    }
     return {
       id: d.id,
       synthetic: d.synthetic,
@@ -19985,7 +20084,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
       shop: d.shop,
       estimateDate: d.date || "Not stated",
       mileage: d.mileage == null ? "Not stated" : `${d.mileage.toLocaleString("en-US")} mi`,
-      atAGlance: { headline: service ? "Here is the work your service record lists." : "Here is what your document lists.", estimateRequest: `${d.items.length} items, with their listed amounts and work status.`, simpleNextStep: "What did the inspection or tests show?", totalLine: `${money(d.total)} listed total.${reconcile(d).incomplete ? " Some amounts are not stated." : reconcile(d).needsReview ? " The line totals do not match." : ""}`, keyPoints },
+      atAGlance: summary,
       items: d.items.map((i, index) => ({ ...i, quoteId: `Q${index + 1}`, cost: [["Parts", i.parts], ["Labor", i.labor], ...i.other != null ? [["Other", i.other]] : []], uncertainty: i.confidence < 0.75 ? "This line was hard to read. Check it against the original document." : i.status === "pending_diagnosis" ? "This line depends on testing. Ask the shop to confirm the scope and amount." : void 0 })),
       fees: [["Shop supplies / other fees", d.fees], ["Sales tax", d.tax]],
       total: d.total,
@@ -19994,7 +20093,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
       quotes,
       questions,
       checks: [["Document fields", d.origin === "dataset" ? "Loaded from the supplied PDF dataset reference; edits applied" : d.origin === "ai" ? "AI extracted; compare with the original document" : "Manually entered; compare with the original document"], ["Quote verification", "Checked against reviewed text, not independently verified OCR"], ["NHTSA recalls and owner complaints", "Not checked"], ["Manufacturer schedule and warranty", "Not checked"]],
-      verification: { quotesTotal: d.items.length, quotesVerified: d.items.length, findingsRemoved: 0 },
+      verification: { quotesTotal: Object.keys(quotes).length, quotesVerified: Object.keys(quotes).length, findingsRemoved: 0 },
       trace: trace.map((event) => {
         const t = safeTrace(event);
         return [`+${(t.startedAtMs / 1e3).toFixed(2)}s`, t.label, null, t.status === "skipped" ? "Not checked" : `${t.durationMs ?? 0}ms`];

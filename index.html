@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="coverage.css" />
     <link rel="stylesheet" href="item-insights.css" />
     <link rel="stylesheet" href="my-page.css" />
+    <link rel="stylesheet" href="app-theme.css" />
   </head>
   <body>
     <a class="skip-link" href="#report">Skip to report</a>
@@ -68,7 +69,8 @@
             <div><p class="eyebrow">Carra's read</p><h2 id="glance-title">The short version</h2></div>
           </div>
           <p class="headline" id="glance-headline"></p><span class="provenance">From your estimate</span>
-          <div class="read-summary">
+          <button type="button" id="read-summary-toggle" class="btn btn-quiet" aria-expanded="false" aria-controls="read-summary">Visit details &amp; next step</button>
+          <div class="read-summary" id="read-summary">
             <div class="read-summary-block"><span class="read-label">Estimate asks for</span><p id="estimate-request"></p></div>
             <div class="read-summary-block next-step"><span class="read-label">Ask the shop</span><p id="simple-next-step"></p></div>
           </div>

@@ -208,6 +208,10 @@
     document.getElementById('mode-banner').textContent = 'Read your document, check the details, and keep the original in view. Public records are not checked.';
     const path = location.hash.slice(1) || '/';
     document.body.classList.toggle('landing-page', path === '/');
+    document.querySelectorAll('.top-nav a').forEach(a => {
+      const active = a.hash === '#/' ? path === '/' : a.hash === '#/my' ? ['/my', '/onboarding'].includes(path) : path.startsWith('/analyze/');
+      if (active) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
     document.getElementById('mode-banner').hidden = ['/', '/my', '/onboarding'].includes(path);
     document.querySelector('.skip-link').href = ['/', '/my', '/onboarding'].includes(path) || path.endsWith('/new') || /\/(review|progress)$/.test(path) ? '#workflow' : '#report';
     document.querySelector('.skip-link').textContent = 'Skip to content';

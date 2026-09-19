@@ -32,7 +32,7 @@ test('all 60 original dataset documents preserve factual fields and completion s
     }
     const report = buildReport(draft);
     assert.equal(report.total, draft.total);
-    if (entry.kind === 'service_record') assert.match(report.atAGlance.headline, /service record/);
+    if (entry.kind === 'service_record') assert.equal(report.atAGlance.sourceLabel, 'From your service record');
   }
 });
 test('original PDF uploads resolve by bytes, and altered/name-spoofed files never become fixture results', async () => {

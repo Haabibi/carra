@@ -94,7 +94,9 @@ function quoteCard(qid, kindKey) {
   let body = esc(q.text);
   if (q.highlight && q.text.includes(q.highlight)) body = body.replace(esc(q.highlight), `<mark>${esc(q.highlight)}</mark>`);
   else body = `<mark>${body}</mark>`;
-  const action = s.tier === 'your_estimate'
+  const action = s.tier === 'your_estimate' && !Number.isInteger(q.itemIndex)
+    ? '<span>Reviewed document details</span>'
+    : s.tier === 'your_estimate'
     ? `<button type="button" data-see-line="${q.itemIndex}">See on estimate</button>`
     : `<a href="${esc(s.url)}" target="_blank" rel="noopener">Open source</a>`;
   const where = `${s.title}, ${q.locator}`;
@@ -135,14 +137,19 @@ function toggleQuotes(chip) {
 // ---------- render: header + layer 1 ----------
 function renderHeader() {
   const service = REPORT.documentKind === 'service_record';
+  const invoice = REPORT.atAGlance.workLabel === 'Invoice covers';
   $('#items-title').textContent = service ? 'Work on this service record' : "What's on this document";
-  $('#questions-title').textContent = service ? 'Questions about this service visit' : 'Questions to ask before you approve';
+  $('#questions-title').textContent = service || invoice ? 'Questions about this service visit' : 'Questions to ask before you approve';
   $('#vehicle-name').textContent = REPORT.vehicle;
-  $('#report-meta').textContent = `${service ? 'Service record' : 'Document'} from ${REPORT.shop}, ${REPORT.estimateDate}. Odometer ${REPORT.mileage}.`;
+  $('#report-meta').textContent = `${service ? 'Service record' : invoice ? 'Invoice' : 'Document'} from ${REPORT.shop}, ${REPORT.estimateDate}. Odometer ${REPORT.mileage}.`;
   $('#glance-headline').textContent = REPORT.atAGlance.headline;
   $('#estimate-request').textContent = REPORT.atAGlance.estimateRequest;
   $('#simple-next-step').textContent = REPORT.atAGlance.simpleNextStep;
   $('#total-line').textContent = REPORT.atAGlance.totalLine;
+  $('#read-summary-toggle').setAttribute('aria-expanded', 'false');
+  $('#read-summary').classList.remove('is-expanded');
+  $('#glance .read-label').textContent = REPORT.atAGlance.workLabel;
+  $$('#glance > .provenance, #glance .read-total .provenance').forEach(label => { label.textContent = REPORT.atAGlance.sourceLabel; });
 
   $('#key-points').innerHTML = REPORT.atAGlance.keyPoints.slice(0, 3).map((kp) => {
     const f = kp.findingId ? REPORT.findings[kp.findingId] : null;
@@ -155,7 +162,7 @@ function renderHeader() {
       ${markSVG(kind)}
       <div>
         <p>${esc(kp.text)}</p>
-        <div class="meta-row"><span class="provenance">${kp.provenance}</span>${chipMobile}</div>
+        <div class="meta-row">${kp.provenance === REPORT.atAGlance.sourceLabel ? '' : `<span class="provenance">${kp.provenance}</span>`}${chipMobile}</div>
       </div>
       <div class="chip-cell">${chipDesktop}</div>
       <div class="quote-slot" id="${slotId}"></div>
@@ -658,4 +665,10 @@ function mountReport(report) {
   $('#checked-toggle').setAttribute('aria-expanded', 'false');
   $('#checked-body').hidden = true;
 }
+document.getElementById('read-summary-toggle').addEventListener('click', event => {
+  const button = event.currentTarget;
+  const expanded = button.getAttribute('aria-expanded') !== 'true';
+  button.setAttribute('aria-expanded', String(expanded));
+  document.getElementById('read-summary').classList.toggle('is-expanded', expanded);
+});
 setupAskBar();
